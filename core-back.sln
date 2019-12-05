@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebapiMed", "WebapiMed\WebapiMed.csproj", "{8E71EAB7-C6F4-4AD9-8F37-276B1F91423C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebapiMed.Tests", "WebapiMed.Tests\WebapiMed.Tests.csproj", "{75E710A5-AF51-44F5-80D1-195340320F3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E71EAB7-C6F4-4AD9-8F37-276B1F91423C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E71EAB7-C6F4-4AD9-8F37-276B1F91423C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E71EAB7-C6F4-4AD9-8F37-276B1F91423C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E71EAB7-C6F4-4AD9-8F37-276B1F91423C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75E710A5-AF51-44F5-80D1-195340320F3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75E710A5-AF51-44F5-80D1-195340320F3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75E710A5-AF51-44F5-80D1-195340320F3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75E710A5-AF51-44F5-80D1-195340320F3A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
