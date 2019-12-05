@@ -8,12 +8,19 @@ namespace WebapiMed.Tests
         [Fact]
         public void MyCollection_Should_Implement_IEnumerator()
         {
-            Assert.Equal(1,1);
             var myCollection = new MyCollection();
             while(myCollection.MoveNext()){
                 Assert.NotNull(myCollection.Current);
             }
 
         }
+
+        [Fact]
+        public void MyCollection_Indexer_Works_Fine(){
+            var myCollection = new MyCollection() ;
+            Assert.Equal("Item 1",myCollection[0].Name);
+
+        } 
+
     }
 }

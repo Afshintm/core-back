@@ -20,7 +20,16 @@ namespace WebapiMed.Models
             new Item{Id=2,Name="Item 2"},
             new Item{Id=3,Name="Item 3"}
         };
-
+        
+        public Item this[int index]
+        {
+            get{
+                return _items[index];
+            }
+            set{ 
+                _items[_items.Length] = value;
+            }
+        }
         public Item Current  { 
             get
             {
