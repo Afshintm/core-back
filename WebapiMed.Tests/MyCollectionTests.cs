@@ -18,9 +18,19 @@ namespace WebapiMed.Tests
         [Fact]
         public void MyCollection_Indexer_Works_Fine(){
             var myCollection = new MyCollection() ;
-            Assert.Equal("Item 1",myCollection[0].Name);
+            Assert.Equal("Item 0",myCollection[0].Name);
 
         } 
 
+        [Fact]
+        public void MyCollection_Indexer_Should_be_Able_To_Add_New_Item(){
+            var myCollection = new MyCollection() ;
+            myCollection[3] = new Item{Id=3,Name="Item 3"};
+            var i = -1 ;
+            while(myCollection.MoveNext()){
+                Assert.Equal($"Item {++i}",myCollection.Current.Name); 
+            }
+            
+        } 
     }
 }
