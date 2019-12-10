@@ -11,7 +11,7 @@ namespace WebapiMed.Models
             return Name;
         }
     }
-    public class MyCollection : IEnumerator<Item>
+    public class MyCollection : IEnumerator<Item>, IEnumerable<Item>
     {
         private int _index = -1; 
         private List<Item> _items = new List<Item>
@@ -62,6 +62,15 @@ namespace WebapiMed.Models
             throw new System.NotImplementedException();
         }
 
-        
+
+
+        public IEnumerator<Item> GetEnumerator()
+        {
+            return this;
+        }
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this;
+        }
     }
 }

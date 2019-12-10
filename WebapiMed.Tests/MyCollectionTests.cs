@@ -1,6 +1,8 @@
 using System;
 using Xunit;
 using WebapiMed.Models;
+using System.Linq;
+
 namespace WebapiMed.Tests
 {
     public class MyCollectionTests
@@ -30,6 +32,25 @@ namespace WebapiMed.Tests
             while(myCollection.MoveNext()){
                 Assert.Equal($"Item {++i}",myCollection.Current.Name); 
             }
+            
+        } 
+
+        [Fact]
+        public void MyCollection_Should_Work_With_Foreach(){
+            var myCollection = new MyCollection() ;
+            myCollection[3] = new Item{Id=3,Name="Item 3"};
+            foreach (var item in myCollection)
+            {
+                Assert.NotNull(item);
+            }
+            
+        } 
+
+        [Fact]
+        public void MyCollection_Should_Work_With_Linq(){
+            var myCollection = new MyCollection() ;
+            myCollection[3] = new Item{Id=3,Name="Item 3"};
+            Assert.NotNull(myCollection.FirstOrDefault(i=>i.Id ==3));
             
         } 
     }
