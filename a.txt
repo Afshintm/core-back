@@ -1,2 +1,6 @@
 Abc
+<<<<<<< HEAD
 master is the important one
+=======
+change on develop
+>>>>>>> develop
