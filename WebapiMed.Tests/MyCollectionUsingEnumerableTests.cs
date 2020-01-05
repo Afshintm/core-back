@@ -1,14 +1,16 @@
 using WebapiMed.Models;
 using Xunit;
 
-public class MyCollectionUsingEnumerableTests{
+public class MyCollectionUsingEnumerableTests
+{
     [Fact]
-    public void MyCollectionUsingEnumerable_Should_Wor_With_Foreach(){
-        var mycollectyionUsingIEnumerable = new MyCollectionUsingEnumerable() ;
+    public void MyCollectionUsingEnumerable_Should_Work_With_Foreach()
+    {
+        var mycollectyionUsingIEnumerable = new MyCollectionUsingEnumerable();
         foreach (var item in mycollectyionUsingIEnumerable)
         {
             Assert.NotNull(item);
         }
     }
-    
+
 }
