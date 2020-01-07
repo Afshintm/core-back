@@ -22,7 +22,20 @@ namespace WebapiMed
             .Enrich.FromLogContext()
             .WriteTo.Console()
             .CreateLogger();
-            CreateHostBuilder(args).Build().Run();
+
+            try
+            {
+                CreateHostBuilder(args).Build().Run();
+            }
+            catch (Exception ex)
+            {
+                Log.Fatal(ex, "Application starup failed .");
+            }
+            finally
+            {
+                Log.CloseAndFlush();
+
+            }
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args)
@@ -33,7 +46,10 @@ namespace WebapiMed
             Array.ForEach(args, i => str.Append(i));
             Log.Information($"Building host with args {str.ToString()}");
 
-            var hostBuilder = Host.CreateDefaultBuilder(args);
+            var hostBuilder = Host
+            .CreateDefaultBuilder(args)
+            .UseSerilog(); // using Serilog
+
             hostBuilder.ConfigureWebHostDefaults(webBuilder =>
             {
                 webBuilder.UseStartup<Startup>();
