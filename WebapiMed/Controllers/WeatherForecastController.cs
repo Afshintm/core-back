@@ -21,9 +21,9 @@ namespace WebapiMed.Controllers
         private readonly ILogger<WeatherForecastController> _logger;
         private readonly SerilogSettings _serilogSettings;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, IOptionsMonitor<SerilogSettings> serilogSettings)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IOptions<SerilogSettings> serilogSettings)
         {
-            _serilogSettings = serilogSettings.CurrentValue;
+            _serilogSettings = serilogSettings.Value;
             _logger = logger;
         }
 
@@ -44,7 +44,7 @@ namespace WebapiMed.Controllers
         [Route("~/api/compliances")]
         public IActionResult GetCompliances()
         {
-            _logger.LogInformation($"Serilog Setting {_serilogSettings.LoggingEndpoint}");
+            _logger.LogInformation($"Serilog Setting: {_serilogSettings.LoggingEndpoint}");
             var vm = new viewModel();
             var complianceList = vm.PopulateData().ToList();
             return Ok(complianceList);
