@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using WebapiMed.Models;
 
 namespace WebapiMed.Controllers
@@ -18,9 +19,11 @@ namespace WebapiMed.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly SerilogSettings _serilogSettings;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IOptionsMonitor<SerilogSettings> serilogSettings)
         {
+            _serilogSettings = serilogSettings.CurrentValue;
             _logger = logger;
         }
 
@@ -39,8 +42,10 @@ namespace WebapiMed.Controllers
 
         [HttpGet]
         [Route("~/api/compliances")]
-        public IActionResult GetCompliances(){
-            var vm= new viewModel() ;
+        public IActionResult GetCompliances()
+        {
+            _logger.LogInformation($"Serilog Setting {_serilogSettings.LoggingEndpoint}");
+            var vm = new viewModel();
             var complianceList = vm.PopulateData().ToList();
             return Ok(complianceList);
         }

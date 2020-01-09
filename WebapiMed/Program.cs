@@ -1,14 +1,10 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Events;
+using Serilog.Formatting.Compact;
 
 namespace WebapiMed
 {
@@ -16,11 +12,16 @@ namespace WebapiMed
     {
         public static void Main(string[] args)
         {
+            var arguments = Environment.GetCommandLineArgs();
+            var e = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
             Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Debug()
             .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
             .Enrich.FromLogContext()
             .WriteTo.Console()
+            .WriteTo.File(new RenderedCompactJsonFormatter(), "log.ndjson")
+            .WriteTo.File("log.txt")
             .CreateLogger();
 
             try
@@ -34,20 +35,26 @@ namespace WebapiMed
             finally
             {
                 Log.CloseAndFlush();
-
             }
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args)
         {
+            if (args != null)
+            {
+                var i = 0;
+                foreach (var item in args)
+                {
+                    Log.Information($"args index {i} = {item}");
+                }
+            }
+            var e = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
-            var j = string.Join(",", args);
-            var str = new StringBuilder();
-            Array.ForEach(args, i => str.Append(i));
-            Log.Information($"Building host with args {str.ToString()}");
+            Log.Information($"Building host with args: {string.Join(",", args)} Environment: {e}");
 
             var hostBuilder = Host
             .CreateDefaultBuilder(args)
+
             .UseSerilog(); // using Serilog
 
             hostBuilder.ConfigureWebHostDefaults(webBuilder =>
