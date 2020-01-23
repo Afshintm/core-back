@@ -27,10 +27,10 @@ namespace WebapiMed
             services.AddMediatR(Assembly.GetExecutingAssembly());
 
             services.AddControllers();
-            // services.AddControllersWithViews(opts =>
-            // {
-            //     opts.Filters.Add<SerilogMvcLoggingAttribute>();
-            // });
+            services.AddControllersWithViews(opts =>
+            {
+                opts.Filters.Add<SerilogMvcLoggingAttribute>();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
