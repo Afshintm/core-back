@@ -18,7 +18,7 @@ namespace WebapiMed
             Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Debug()
             .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-            .MinimumLevel.Override("Microsoft.AspNetCore.Mvc", LogEventLevel.Warning)
+            .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)
             .Enrich.FromLogContext()
             .WriteTo.Console()
             .WriteTo.File(new RenderedCompactJsonFormatter(), "log.ndjson")
@@ -51,7 +51,7 @@ namespace WebapiMed
             }
             var e = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
-            Log.Information($"Building host with args: {string.Join(",", args)} Environment: {e}");
+            Log.Information($"Building host with args: {string.Join(",", args)} ,Environment: {e}");
 
             var hostBuilder = Host
             .CreateDefaultBuilder(args)
