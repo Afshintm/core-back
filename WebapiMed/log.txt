@@ -307,3 +307,76 @@
 2020-01-23 14:07:53.880 +11:00 [INF] Value controller is running.
 2020-01-23 14:07:53.883 +11:00 [INF] HTTP GET /values responded 200 in 4.512662 ms
 2020-01-23 14:08:07.910 +11:00 [INF] Application is shutting down...
+2020-02-04 10:38:27.396 +11:00 [INF] Building host with args:  ,Environment: Development
+2020-02-04 10:38:27.912 +11:00 [INF] Now listening on: https://localhost:5051
+2020-02-04 10:38:27.915 +11:00 [INF] Now listening on: http://localhost:5050
+2020-02-04 10:38:27.915 +11:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-02-04 10:38:27.915 +11:00 [INF] Hosting environment: Development
+2020-02-04 10:38:27.916 +11:00 [INF] Content root path: /Users/afshin.teymoori/Repos/core-back/WebapiMed
+2020-02-04 10:38:40.960 +11:00 [INF] HTTP GET / responded 404 in 19.93734 ms
+2020-02-04 10:38:46.138 +11:00 [INF] Serilog Setting: A Developmengt Endpoint
+2020-02-04 10:38:46.160 +11:00 [INF] HTTP GET /api/compliances responded 200 in 61.47722 ms
+2020-02-04 10:38:46.277 +11:00 [INF] HTTP GET /favicon.ico responded 404 in 1.075288 ms
+2020-02-13 08:21:43.531 +11:00 [INF] Building host with args:  ,Environment: Development
+2020-02-13 08:21:44.092 +11:00 [INF] Now listening on: https://localhost:5051
+2020-02-13 08:21:44.095 +11:00 [INF] Now listening on: http://localhost:5050
+2020-02-13 08:21:44.095 +11:00 [INF] Application started. Press Ctrl+C to shut down.
+2020-02-13 08:21:44.095 +11:00 [INF] Hosting environment: Development
+2020-02-13 08:21:44.096 +11:00 [INF] Content root path: /Users/afshin.teymoori/Repos/core-back/WebapiMed
+2020-02-13 18:48:11.938 +11:00 [INF] HTTP GET /weatherforecast responded 200 in 136.939148 ms
+2020-02-13 18:48:12.243 +11:00 [INF] HTTP GET /favicon.ico responded 404 in 1.770628 ms
+2020-02-13 18:50:41.444 +11:00 [INF] HTTP GET /weatherforecast responded 200 in 3.468738 ms
+2020-02-13 18:51:34.046 +11:00 [INF] HTTP GET /weatherforecast responded 200 in 3.412787 ms
+2020-02-13 18:51:39.251 +11:00 [INF] HTTP GET /weatherforecast responded 200 in 2.206654 ms
+2020-02-13 18:51:40.903 +11:00 [INF] HTTP GET /weatherforecast responded 200 in 1.81613 ms
+2020-02-13 18:51:57.103 +11:00 [INF] HTTP GET /weatherforecast responded 200 in 2.796811 ms
+2020-02-13 18:51:58.527 +11:00 [INF] HTTP GET /weatherforecast responded 200 in 1.676647 ms
+2020-02-13 18:52:25.083 +11:00 [INF] HTTP GET /weatherforecast responded 200 in 2.959081 ms
+2020-02-13 18:53:12.086 +11:00 [INF] HTTP GET /weatherforecast responded 200 in 5.452709 ms
+2020-02-19 12:16:18.335 +11:00 [INF] Building host with args:  ,Environment: Development
+2020-02-19 12:16:18.868 +11:00 [FTL] Unable to start Kestrel.
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5000: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Address already in use
+ ---> System.Net.Sockets.SocketException (48): Address already in use
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer.<>c__DisplayClass21_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.DefaultAddressStrategy.BindAsync(AddressBindContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(IServerAddressesFeature addresses, KestrelServerOptions serverOptions, ILogger logger, Func`2 createBinding)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+2020-02-19 12:16:18.887 +11:00 [FTL] Application starup failed .
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5000: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Address already in use
+ ---> System.Net.Sockets.SocketException (48): Address already in use
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer.<>c__DisplayClass21_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.DefaultAddressStrategy.BindAsync(AddressBindContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(IServerAddressesFeature addresses, KestrelServerOptions serverOptions, ILogger logger, Func`2 createBinding)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at WebapiMed.Program.Main(String[] args) in /Users/afshin.teymoori/Repos/core-back/WebapiMed/Program.cs:line 30

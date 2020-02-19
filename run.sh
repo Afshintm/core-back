@@ -98,6 +98,7 @@ function print_usage {
   echo "${GREEN_TEXT}./run.sh run   docker"
   echo "${GREEN_TEXT}./run.sh run   api:stubs"
   echo "${GREEN_TEXT}./run.sh run   api:sit"
+  echo "${GREEN_TEXT}./run.sh run   api:development/|staging|production"
   echo "${YELLOW_TEXT}./run.sh test  unit"
   echo "${YELLOW_TEXT}./run.sh test  component"
   echo "${YELLOW_TEXT}./run.sh test  integration"
