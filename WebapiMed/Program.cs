@@ -1,6 +1,8 @@
 using System;
 using System.Text;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
@@ -55,12 +57,21 @@ namespace WebapiMed
 
             var hostBuilder = Host
             .CreateDefaultBuilder(args)
-
+            //Overiding Kerstrel config in appsetting.{environment}.json with 
+            // .ConfigureServices((context, services) =>
+            // {
+            //     services.Configure<KestrelServerOptions>(
+            //         context.Configuration.GetSection("Kestrel"));
+            // })
             .UseSerilog(); // using Serilog
 
+
+            //setup Kestrel and other WebHostBuilder which can be customized with following action
             hostBuilder.ConfigureWebHostDefaults(webBuilder =>
             {
-                webBuilder.UseStartup<Startup>();
+                webBuilder
+                //.UseUrls("http://localhost:5060;https://localhost:5061")
+                .UseStartup<Startup>();
             });
             return hostBuilder;
         }

@@ -54,7 +54,8 @@ function run_api_env {
 
   echo
   echo "${CYAN_TEXT}*** Running API --no-launch-profile  ${description} aka ASPNETCORE_ENVIRONMENT=${environment} ***${RESET_TEXT}"
-  dotnet run --project WebapiMed/WebapiMed.csproj --no-launch-profile
+  #ASPNETCORE_URLS=https://*:5001 
+  dotnet run --project WebapiMed/WebapiMed.csproj --no-launch-profile --urls="https://*:5061;http://*:5060"
   #ASPNETCORE_ENVIRONMENT=$environment dotnet run --project WebapiMed --no-launch-profile
 }
 
