@@ -336,3 +336,5 @@ ASALocalRun/
 *.DS_Store
 .DS_Store
 .ionide
+log.txt
+log.ndjson
