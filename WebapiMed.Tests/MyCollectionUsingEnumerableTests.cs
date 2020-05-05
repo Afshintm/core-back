@@ -12,5 +12,4 @@ public class MyCollectionUsingEnumerableTests
             Assert.NotNull(item);
         }
     }
-
 }
