@@ -1,11 +1,9 @@
 using System;
-using System.Text;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Server.Kestrel.Core;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
+using Serilog.Core;
 using Serilog.Formatting.Compact;
 
 namespace WebapiMed
@@ -16,6 +14,7 @@ namespace WebapiMed
         {
             var arguments = Environment.GetCommandLineArgs();
             var e = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            var levelSwitch = new LoggingLevelSwitch();
 
             Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Debug()
