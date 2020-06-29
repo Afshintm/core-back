@@ -19,11 +19,15 @@ namespace WebapiMed.Tests.Folder1.Folder11.Folder111
         [Fact]
         public void Uri_Builder_Test_Removes_double_Slashes()
         {
-            Thread.Sleep(15000);
             var baseUri = new Uri("http://abc.com.au/");
-            var relativePath = "/rset/of/theMessage?var1=value1&var2=value2";
+            var relativePath = "/rest/of/theMessage?var1=value1&var2=value2";
+
             var uri = new Uri(baseUri, relativePath).ToString();
-            Assert.NotNull(uri);
+
+            var substringFromDot_au = uri.Substring(uri.IndexOf(@".au"));
+
+            Assert.True(uri.Contains(@"//"));
+            Assert.False(substringFromDot_au.Contains(@"//"));
         }
 
     }
