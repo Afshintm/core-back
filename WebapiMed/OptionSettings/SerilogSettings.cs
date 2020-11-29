@@ -1,6 +1,8 @@
+using System.ComponentModel.DataAnnotations;
+
 public class SerilogSettings
 {
-    public SerilogSettings() { }
+    [Required(AllowEmptyStrings = false)]
     public string LoggingEndpoint { get; set; }
     public string MinimumLevel { get; set; }
 }

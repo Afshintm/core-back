@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using WebapiMed.Infrastructure;
+using WebapiMed.Models;
 
 namespace WebapiMed
 {
@@ -23,7 +24,26 @@ namespace WebapiMed
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddOptions();
-            services.Configure<SerilogSettings>(Configuration.GetSection("SerilogSettings"));
+            //services.Configure<SerilogSettings>(Configuration.GetSection("SerilogSettings"));
+
+            services.AddOptions<SerilogSettings>()
+                .Bind(Configuration.GetSection(nameof(SerilogSettings)))
+                .ValidateDataAnnotations()
+                .Validate(
+                    config =>
+                    {
+                        if (string.IsNullOrEmpty(config.LoggingEndpoint))
+                        {
+                            return false;
+                        }
+
+                        return true;
+                    }, "ClientId is null");
+
+            var goodmentsConfig = new GoodmentsConfig();
+            Configuration.Bind("GoodmentsConfig", goodmentsConfig);
+            services.AddSingleton(goodmentsConfig);
+
             services.AddMediatR(Assembly.GetExecutingAssembly());
 
             services.AddControllers();

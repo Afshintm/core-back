@@ -20,11 +20,13 @@ namespace WebapiMed.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
         private readonly SerilogSettings _serilogSettings;
+        private readonly GoodmentsConfig _goodments;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, IOptions<SerilogSettings> serilogSettings)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IOptionsSnapshot<SerilogSettings> serilogSettings, GoodmentsConfig goodments)
         {
             _serilogSettings = serilogSettings.Value;
             _logger = logger;
+            _goodments = goodments;
         }
 
         [HttpGet]
