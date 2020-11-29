@@ -12,7 +12,7 @@ public class ValuesController : ControllerBase
     private ILogger<ValuesController> _logger;
     private SerilogSettings _serilogSettings;
     public ValuesController(ILogger<ValuesController> logger, IOptionsSnapshot<SerilogSettings> serilogSettings,
-    IOptionsSnapshot<GoodmentsConfig> goodmentsConfig)
+    IOptionsSnapshot<SomeConfig> someConfig)
     {
         _logger = logger;
         _serilogSettings = serilogSettings.Value;

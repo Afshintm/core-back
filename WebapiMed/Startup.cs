@@ -40,9 +40,9 @@ namespace WebapiMed
                         return true;
                     }, "ClientId is null");
 
-            var goodmentsConfig = new GoodmentsConfig();
-            Configuration.Bind("GoodmentsConfig", goodmentsConfig);
-            services.AddSingleton(goodmentsConfig);
+            var someConfig = new SomeConfig();
+            Configuration.Bind("SomeConfig", someConfig);
+            services.AddSingleton(someConfig);
 
             services.AddMediatR(Assembly.GetExecutingAssembly());
 
